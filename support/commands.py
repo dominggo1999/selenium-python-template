@@ -29,4 +29,4 @@ def loginWith(browser: webdriver.Chrome, username, password):
 
 
 def login(browser: webdriver.Chrome):
-    loginWith(browser, VALID_USERNAME, VALID_PASSWORD)
+    loginWith(browser, "ALALALALALALALA", VALID_PASSWORD)
