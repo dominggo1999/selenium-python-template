@@ -14,9 +14,11 @@ class SuccessfulLogin (unittest.TestCase):
     # LP-001
     def valid_username_and_password(self):
         loginWith(self.browser, VALID_USERNAME, VALID_PASSWORD)
+        assert "/dashboard" in self.browser.current_url
 
     def just_testing_login_command(self):
         login(self.browser)
+        assert "/dashboard" in self.browser.current_url
 
 
 if __name__ == "__main__":
