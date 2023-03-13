@@ -2,6 +2,8 @@ import unittest
 from e2e.login_page.login import SuccessfulLogin
 import chromedriver_autoinstaller
 import os
+import sys
+
 
 # Check if running on Github Actions
 is_running_on_github_actions = os.getenv('GITHUB_ACTIONS') == 'true'
@@ -20,4 +22,9 @@ if __name__ == "__main__":
     suite.addTest(SuccessfulLogin("valid_username_and_password"))
     suite.addTest(SuccessfulLogin("just_testing_login_command"))
     runner = unittest.TextTestRunner()
-    runner.run(suite)
+    results = runner.run(suite)
+
+    # Check if there were any failures and return non-zero exit status code
+    # This is to ensure that Github Actions fails the build when there are failing tests
+    if is_running_on_github_actions and results.failures:
+        sys.exit(1)
