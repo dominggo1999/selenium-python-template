@@ -2,6 +2,10 @@ import unittest
 
 from e2e.login_page.login import SuccessfulLogin
 
+import chromedriver_autoinstaller
+
+chromedriver_autoinstaller.install()
+
 
 if __name__ == "__main__":
     suite = unittest.TestSuite()

@@ -1,13 +1,12 @@
 import unittest
 from selenium import webdriver
-from webdriver_manager.chrome import ChromeDriverManager
 from support.commands import loginWith, login
 from config.credentials import VALID_PASSWORD, VALID_USERNAME
 
 
 class SuccessfulLogin (unittest.TestCase):
     def setUp(self):
-        self.browser = webdriver.Chrome(ChromeDriverManager().install())
+        self.browser = webdriver.Chrome()
 
     def tearDown(self):
         self.browser.quit()
